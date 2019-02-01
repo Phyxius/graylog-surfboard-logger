@@ -15,6 +15,8 @@ priorityMapping = {
 	'3-Critical': logging.CRITICAL,
 }
 
+lastErrorFile = os.path.join(os.path.dirname(os.path.realpath(__file__)), lastErrorFile)
+
 soup = BeautifulSoup(urllib.request.urlopen(sys.argv[1]), 'html.parser')
 
 table = soup.find('table', {'align': 'center'})
@@ -29,12 +31,12 @@ for row in rows:
 
 last_error = []
 try:
-	if os.path.isfile('last-error.json'):
-		with open('last-error.json', 'r') as f:
+	if os.path.isfile(lastErrorFile):
+		with open(lastErrorFile, 'r') as f:
 			last_error = json.loads(f.read())
 except json.decoder.JSONDecodeError:
 	print("Couldn't parse last-error.json, assuming empty...", file=sys.stderr)
-with open('last-error.json', 'w') as f:
+with open(lastErrorFile, 'w') as f:
 	f.write(json.dumps(data[0]))
 
 new_errors = []
