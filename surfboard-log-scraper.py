@@ -15,7 +15,7 @@ priorityMapping = {
 	'3-Critical': logging.CRITICAL,
 }
 
-lastErrorFile = os.path.join(os.path.dirname(os.path.realpath(__file__)), lastErrorFile)
+lastErrorFile = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'last-error.json')
 
 soup = BeautifulSoup(urllib.request.urlopen(sys.argv[1]), 'html.parser')
 
