@@ -42,7 +42,7 @@ with open(lastErrorFile, 'w') as f:
 new_errors = []
 for row in data:
 	if row == last_error: break
-	new_errors.append(row)
+	new_errors.insert(0,row)
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger()
