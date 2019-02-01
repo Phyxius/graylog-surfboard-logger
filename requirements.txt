@@ -1,0 +1,4 @@
+beautifulsoup4==4.7.1
+bs4==0.0.1
+pygelf==0.3.4
+soupsieve==1.7.3
